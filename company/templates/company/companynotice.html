@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notice</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'company/css/notice.css' %}">
+
+</head>
+<body>
+  <a href="{% url 'companyprofile' %}">Back</a>
+  <div class="row ">
+    <h3 class="text-center">NOTICE</h3>
+    <form class="" action="{% url 'noticesubmit' %}" method="post">
+      {% csrf_token %}
+      <div class="col-sm-6 aj text-center">
+        Put placement details here!
+        <br>
+        <br>
+        <label for="Placements" class="control-label text-center">Placements:</label><br><br>
+        <textarea class="form-control" rows="5" id="place" name="placements" required></textarea>
+        <br>
+        <br>
+
+
+
+      </div>
+
+      <div class="col-sm-6 text-center aj">
+        Put internship details here!
+        <br>
+        <br>
+        <label for="Internships" class="control-label text-center">Internships:</label><br><br>
+        <textarea class="form-control" rows="5" id="intern" name="internships" required></textarea>
+        <br>
+        <br>
+
+      </div>
+
+    </div>
+
+    <div class="form-group text-center lol">
+
+      <button type="submit" class="btn btn-default">Submit</button><br>
+      Note: ** Initial notices will be removed **<br>
+
+    </div>
+
+
+
+    </form>
+
+
+
+
+  <footer class="text-center">
+  <p>Copyrights@kolrad</p>
+  <p>For any quesries contact us at 99999-99999</p>
+  <p>Email us at kolrad@gmail.com</p>
+  </footer>
+
+
+
+</body>
+</html>

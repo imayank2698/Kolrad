@@ -1,0 +1,89 @@
+{% load static %}
+
+body{
+  color:#666 !important;
+}
+.parallax {
+    /* The image used */
+    background-image: url("/static/company/images/front_banner_2.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+    max-width: 100%;
+    height: 1200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px !important;
+}
+.parallax img{
+  margin-top: 20px;
+}
+.parallax1 {
+    /* The image used */
+    background-image: url("/static/company/images/frontbanner.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+    max-width: 100%;
+    height: 1200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px !important;
+}
+.col-sm-6{
+  text-align: center;
+  letter-spacing: 4px;
+  background-color: #333;
+}
+nav{
+  margin-bottom: 0px;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+span{
+  text-align: center;
+  letter-spacing: 8px;
+  font-size: 40px;
+  font-weight: bold;
+  color:#2a73cc;
+}
+footer{
+  padding: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+footer p{
+  color:#2a73cc;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 35px;
+}
+
+a:hover{
+  color: #333 !important;
+}
+
+span .glyphicon {
+  height: 5px;
+  width: 3px !important;
+  margin-right: 35px !important;
+}
+.glyphicon {
+  font-weight:100;
+}
+a:hover{
+  color:#777 !important;
+}
+
+p{
+  font-size: 20px;
+}

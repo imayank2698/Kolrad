@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'company/css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'company/css/companyreg.css' %}">
+    <style>
+    img{
+      margin-bottom: 50px;
+    }
+    nav{
+      margin-bottom: 200px;
+    }
+    form{
+      margin-top: 100px;
+      text-align: center;
+    }
+    .gg{
+      width:50%;
+      border: 1px solid black;
+      margin-left: 350px;
+      margin-top: 100px;
+      z-index: 1;
+      background-color: #fff;
+    }
+    button{
+      margin-right: 200px;
+    }
+    body{
+        background-color: #2a73cc;
+        color: #2a73cc;
+    }
+    label input{
+      margin-left: 40px;
+    }
+    h3{
+      letter-spacing: 6px;
+      color: #2a73cc;
+    }
+    </style>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="letter-spacing:6px;">
+      <a class="navbar-brand active" href="#" style="color:#fff;">KOLRAD</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'signup' %}" style="color:#fff;"><span class="glyphicon glyphicon-user" style="margin-right: 5px"></span>Back</a></li>
+    </ul>
+  </div>
+</nav>
+{% if request.GET.auth %}
+<p class="text-center warn">User exists</p>
+{% endif %}
+<div class="bgg">
+
+<div class="text-center gg">
+<h3>REGISTER HERE</h3>
+<form class="form-horizontal" action="{% url 'companyregsub' %}" method="post">
+{% csrf_token %}
+
+<div class="form-group">
+  <label class="control-label col-sm-2" for="name">Name:</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name"required>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-sm-2" for="mno">Website url:</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="wurl" name="wurl" placeholder="Enter website url Please provide url with https or http" required>
+  </div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="email">Email:</label>
+<div class="col-sm-10">
+  <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="username">username:</label>
+<div class="col-sm-10">
+  <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="pwd">Password:</label>
+<div class="col-sm-10">
+  <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password" required>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="username">Country:</label>
+<div class="col-sm-10">
+  <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" required>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="username">City:</label>
+<div class="col-sm-10">
+  <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+</div>
+</div>
+<div class="form-group">
+  <label for="description" class="control-label col-sm-2">Description:</label>
+  <textarea class="form-control" rows="5" id="des" placeholder="Enter Short Description which defines your company" name="des" required></textarea>
+</div>
+<h2 class="text=center skills">Skills</h2>
+  <div class="skills">
+    <label class="checkbox-inline "><input type="checkbox" value="python" name='python'>Python</label>
+    <label class="checkbox-inline"><input type="checkbox" value="java" name='java'>Java</label>
+    <label class="checkbox-inline"><input type="checkbox" value="dotnet" name='dotnet'>.net</label>
+    <label class="checkbox-inline "><input type="checkbox" value="c++" name='c++'>c++</label>
+    <label class="checkbox-inline"><input type="checkbox" value="android" name='android' >Android</label>
+    <label class="checkbox-inline"><input type="checkbox" value="iot" name='iot'>IOT</label>
+    <label class="checkbox-inline "><input type="checkbox" value="machine learning" name='machine learning'>Machine Learning</label>
+    <label class="checkbox-inline"><input type="checkbox" value="r programming" name='r programming'>R programming</label>
+    <label class="checkbox-inline"><input type="checkbox" value="database" name='database'>Database</label>
+    <label class="checkbox-inline "><input type="checkbox" value="big data" name='big data'>Big data</label>
+    <label class="checkbox-inline"><input type="checkbox" value="data structure" name='data structure'>Data Structures</label>
+    <label class="checkbox-inline"><input type="checkbox" value="ios" name='ios"'>IOS</label>
+    <label class="checkbox-inline "><input type="checkbox" value="networking" name='networking'>Networking</label>
+    <label class="checkbox-inline"><input type="checkbox" value="frontend" name='frontend'>FRONTEND</label>
+    <label class="checkbox-inline"><input type="checkbox" value="backend" name='backend'>BACKEND</label>
+    <label class="checkbox-inline "><input type="checkbox" value="django" name='django'>DJANGO</label>
+    <label class="checkbox-inline"><input type="checkbox" value="laravel" name='laravel'>LARAVEL</label>
+    <label class="checkbox-inline"><input type="checkbox" value="js frameworks" name='js frameworks'>JS FRAMEWORKS</label>
+
+
+  </div>
+<br><br>
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+  <button type="submit" class="btn btn-default btn-primary">Submit</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+</body>
+</html>

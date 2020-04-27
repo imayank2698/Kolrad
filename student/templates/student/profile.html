@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile</title>
+  {% load static %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+  <link rel="stylesheet" href="{% static 'student/css/profile.css' %}">
+</head>
+<body style="color:#2a73cc;" class="text-center">
+
+  <h2 style="">{{username}} welcome's you to see his profile</h2>
+  <div class="image text-center">
+    <img src="{{student.pic_path}}" alt="" style="width:700px; height:350px; margin-top:50px;">
+  </div>
+  <br><br>
+  <div class="">
+    <p>Name: {{student.name}}</p>
+    <p> Rank #{{rank}} </p>
+    <p>Email: {{student.email}}</p>
+    <p>Contact No {{student.contact}}</p>
+  </div>
+  <br>
+  <div class="text-center">
+    <h2>Academic Details</h2>
+    <br>
+    <p>Ssc Marks:{{acad.ssc}}</p>
+    <p>Hsc Marks:{{acad.hsc}}</p>
+    <p>Cgpa:{{acad.cgpa}}</p>
+    <p>Department:{{acad.department}}</p>
+    <p>Division:{{acad.division}}</p>
+  </div>
+  <br>
+  <div class="text-center">
+    <h3>SKILLS</h3>
+    <table class="table table-bordered" style="width:50%; margin-left:370px;">
+      <thead>
+        <th style="text-align:center">Skills</th>
+        <th style="text-align:center">Rating</th>
+      </thead>
+      <tbody>
+          {% for skill in skills %}
+          <tr>
+            <td>{{skill.skill}}</td>
+            <td>{{skill.rate}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="row text-center">
+    <div class="col-sm-6">
+      <p>Interships</p>
+          <hr>
+          {% for internship in internships %}
+            <p>Name: {{internship.name}}</p>
+            <a href="{{internship.pic_path}}" alt="" >proof here</a>
+            <p>Desc: {{internship.desc}}</p>
+            <hr>
+      {% endfor %}
+    </div>
+
+
+    <div class="col-sm-6">
+      <p>Certifications</p>
+          <hr>
+          {% for certification in certifications %}
+            <p>Desc:{{certification.name}}</p>
+            <a href="{{certification.pic_path}}" id="image2" alt="">proof here</a>
+            <p>{{certification.desc}}</p>
+            <hr>
+      {% endfor %}
+    </div>
+  </div><br><br><br>
+
+  <div class="text-center ">
+    <h3>PROJECT</h3>
+    <table class="table table-bordered text-center" style="width:50%;margin-left:400px; ">
+      <thead>
+        <th style="text-align:center">Projects</th>
+        <th style="text-align:center">Link</th>
+        <th style="text-align:center">Description</th>
+      </thead>
+      <tbody>
+          {% for project in projects %}
+          <tr>
+            <td>{{project.projectname}}</td>
+            <td>{{project.github}}</td>
+            <td>{{project.desc}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

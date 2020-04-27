@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'student/css/register.css' %}">
+  <script type="text/javascript" src="{% static 'student/js/academic.js' %}">
+
+  </script>
+</head>
+<body>
+<div class="row row-eq-height">
+  <div class="col-sm-3 text-center">
+    <!--nav class="navbar navbar-default navbar-fixed-top" style="letter-spacing:10px !important;">
+    <div class="container-fluid">
+      <div class="navbar-header" style="letter-spacing:6px;">
+        <a class="navbar-brand text-center" href="#" style="color:#2a73cc;">KOLRAD</a>
+      </div>
+    </div>
+  </nav-->
+  <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom:30px !important;">
+  <div class="container-fluid">
+    <div class="navbar-header" style="letter-spacing:6px;">
+      <a class="navbar-brand active" href="#" style="color:#2a73cc;">KOLRAD</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'signup' %}" style="color:#2a73cc;"><span class="glyphicon glyphicon-user" style="margin-right: 5px"></span>Howdy ,{{username}} </a></li>
+    </ul>
+  </div>
+</nav>
+    <ul>
+      <li><a href="{% url 'academic' %}">ACADEMIC DETAILS</a></li>
+      <li><a href="{% url 'internship' %}">CERTIS/INTERNSHIPS</a></li>
+      <li><a href="{% url 'project' %}">PROJECTS</a></li>
+      <li><a href="{% url 'skills' %}">SKILLS</a></li>
+      <li><a href="{% url 'profile' %}">VIEW PROFILE</a></li>
+      <li><a href="{% url 'registerupdate' %}">UPDATE REGISTER INFORMATION</a></li>
+      <li><a href="{% url 'academicupdate' %}">UPDATE ACADEMIC INFORMATION</a></li>
+      <li><a href="{% url 'studentlist' %}">VIEW OTHER STUDENTS</a></li>
+      <li><a href="{% url 'companylist' %}">VIEW COMPANY</a></li>
+      <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-9 text-center dash-row">
+    <span class="text-center">Howdy {{username}} , {{messageoftheday}}</span>
+    <br>
+    <div class="image">
+      <img src="{{student.pic_path}}" alt="">
+    </div>
+    <div class="text-center profile">
+      <p>Name: {{student.name}}</p>
+      <p>Email: {{student.email}}</p>
+      <p>Contact Me @: {{student.contact}}</p>
+      <p>Username: {{student.username}}</p>
+    </div>
+  </div>
+
+</div>
+<footer class="text-center">
+<p>Copyrights@kolrad</p>
+<p>For any quesries contact us at 99999-99999</p>
+<p>Email us at kolrad@gmail.com</p>
+</footer>
+
+
+</body>
+</html>

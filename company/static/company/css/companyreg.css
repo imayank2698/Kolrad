@@ -1,0 +1,12 @@
+#email,#pwd,#name,#wurl,#username,#country,#city,#des{
+  width: 50%;
+}
+#username{
+  width: 50%;
+}
+.warn{
+  color: red;
+}
+.skills{
+  margin-left: 40px;
+}

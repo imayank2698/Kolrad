@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  {% load static %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+  <style media="screen">
+    .col-sm-4{
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+    }
+    h1{
+      text-align: center;
+      margin: 40px;
+    }
+    body{
+      color:#2a73cc;
+    }
+    h3{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Hackathon</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+     <li><a href="{% url 'companyprofile' %}"> Back</a></li>
+
+   </ul>
+  </div>
+</nav>
+<br>
+<hr>
+<p>&nbsp;&nbsp;&nbsp;Filter by:</p>
+<br>
+<form action="{% url 'studentfilter' %}" method="post">
+  {% csrf_token %}
+<div class="skills">
+    &nbsp;&nbsp;&nbsp;<label class="checkbox-inline "><input type="checkbox" value="python" name='python' >Python</label>
+    <label class="checkbox-inline"><input type="checkbox" value="java" name='java'>Java</label>
+    <label class="checkbox-inline"><input type="checkbox" value="dotnet" name='dotnet'>.net</label>
+    <label class="checkbox-inline "><input type="checkbox" value="c" name='c++'>c</label>
+    <label class="checkbox-inline"><input type="checkbox" value="android" name='android' >Android</label><br>
+    &nbsp;&nbsp;&nbsp;<label class="checkbox-inline"><input type="checkbox" value="iot" name='iot'>IOT</label>
+    <label class="checkbox-inline "><input type="checkbox" value="machine learning" name='machine learning'>Machine Learning</label>
+    <label class="checkbox-inline"><input type="checkbox" value="r programming" name='r programming'>R programming</label>
+    <label class="checkbox-inline"><input type="checkbox" value="database" name='database'>Database</label><br>
+    &nbsp;&nbsp;&nbsp;<label class="checkbox-inline "><input type="checkbox" value="big data" name='big data'>Big data</label>
+    <label class="checkbox-inline"><input type="checkbox" value="data structure" name='data structure'>Data Structures</label>
+    <label class="checkbox-inline"><input type="checkbox" value="ios" name='ios"'>IOS</label>
+    <label class="checkbox-inline "><input type="checkbox" value="networking" name='networking'>Networking</label><br>
+    &nbsp;&nbsp;&nbsp;<label class="checkbox-inline"><input type="checkbox" value="frontend" name='frontend'>FRONTEND</label>
+    <label class="checkbox-inline"><input type="checkbox" value="backend" name='backend'>BACKEND</label>
+    <label class="checkbox-inline "><input type="checkbox" value="django" name='django'>DJANGO</label>
+    <label class="checkbox-inline"><input type="checkbox" value="laravel" name='laravel'>LARAVEL</label>
+    <label class="checkbox-inline"><input type="checkbox" value="js frameworks" name='js frameworks'>JS FRAMEWORKS</label>
+    <br>
+    <div class="container text-center">
+      <input type="submit" class="btn btn-info" value="Submit" >
+
+    </div>
+
+    <div class="displaychecked">
+      {% for i in checkedskill %}
+      <p>{{i}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</form>
+  <br>
+  <a href="{% url 'dashboard' %}" class="btn btn-info btn-lg" style="float:left !important; margin-left:50px; margin-top:20px;">Back</a>
+  <br>
+<h1>Student Ranking List</h1>
+  <div class="row text-center">
+    <div class="col-sm-4 text-center">
+      <h3>Rank</h3>
+      <hr>
+      {% for r in rank_object %}
+        <p>{{r}}</p>
+        <hr>
+        {% endfor %}
+    </div>
+    <div class="col-sm-4 text-center">
+      <h3>Name</h3>
+      <hr>
+      {% for n in name %}
+        <p>{{n}}</p>
+        <hr>
+        {% endfor %}
+    </div>
+    <div class="col-sm-4 text-center">
+      <h3>Username</h3>
+      <hr>
+      {% for s in student %}
+      <p>
+        <a href="{% url 'studentprofile' username=s.username  %}" >{{s.username}}</a></p>
+        <hr>
+        {% endfor %}
+    </div>
+  </div>
+
+
+  <hr>
+  <div>
+
+    </div>
+
+
+
+
+</body>
+</html>

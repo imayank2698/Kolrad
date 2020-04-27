@@ -1,0 +1,16 @@
+#image2{
+  height: 120px;
+  width: 120px;
+}
+thead th tr td{
+  text-align: center !important;
+}
+body{
+  font-size: 30px;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}

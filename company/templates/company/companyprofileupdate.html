@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>companyprofile update</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'company/css/vendor/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'company/css/companyreg.css' %}">
+  <style media="screen">
+    table,th,thead,tr,td{
+      border: 1 px solid black;
+    }
+    body{
+      color:#2a73cc;
+    }
+    button{
+      margin-left:480px;
+    }
+  </style>
+
+</head>
+<body onload="check({{skills}})">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="letter-spacing:6px;">
+      <a class="navbar-brand active" href="#" style="color:#fff;">KOLRAD</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'companyprofile' %}" style="color:#fff;"><span class="glyphicon glyphicon-user" style="margin-right: 5px"></span>Back</a></li>
+    </ul>
+  </div>
+</nav>
+<form class="form-horizontal" action="{% url 'companyupdatesubmit'  %}" method="post" style="margin-top:120px;">
+{% csrf_token %}
+
+<div class="form-group">
+  <label class="control-label col-sm-2" for="name">Name:</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" name="name" id="name" value="{{company.name}}" required>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-sm-2" for="mno" >Website url:</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="wurl" name="wurl" placeholder="Please provide url with https or http" value="{{company.websiteurl}}" required>
+  </div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="email">Email:</label>
+<div class="col-sm-10">
+  <input type="email" class="form-control" id="email" name="email" value="{{company.email}}" required>
+</div>
+</div>
+
+
+<div class="form-group">
+<label class="control-label col-sm-2" for="username">Country:</label>
+<div class="col-sm-10">
+  <input type="text" class="form-control" id="country" name="country" value="{{company.country}}" required>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="username">City:</label>
+<div class="col-sm-10">
+  <input type="text" class="form-control" id="city" name="city" value="{{company.city}}" required>
+</div>
+</div>
+<div class="form-group">
+  <label for="description" class="control-label col-sm-2">Description:</label>
+  <textarea class="form-control" rows="5" id="des" name="des" placeholder="Enter Short Description which defines your company" required >{{company.country}}</textarea>
+</div>
+<br>
+<table class="table table-hover table-bordered text-center">
+  <thead>
+    <th style="text-align:center"> Skills previously selected</th>
+  </thead>
+  <tbody>
+    {% for skill in skills %}
+            <tr>
+              <td>{{skill}}</td>
+            </tr>
+          {% endfor %}
+  </tbody>
+</table>
+<h3 class="text-center skills"> please enter all skills again</h3>
+  <div class="skills">
+    <label class="checkbox-inline "><input type="checkbox" value="python" name='python' >Python</label>
+    <label class="checkbox-inline"><input type="checkbox" value="java" name='java'>Java</label>
+    <label class="checkbox-inline"><input type="checkbox" value="dotnet" name='dotnet'>.net</label>
+    <label class="checkbox-inline "><input type="checkbox" value="c++" name='c++'>c++</label>
+    <label class="checkbox-inline"><input type="checkbox" value="android" name='android' >Android</label>
+    <label class="checkbox-inline"><input type="checkbox" value="iot" name='iot'>IOT</label>
+    <label class="checkbox-inline "><input type="checkbox" value="machine learning" name='machine learning'>Machine Learning</label>
+    <label class="checkbox-inline"><input type="checkbox" value="r programming" name='r programming'>R programming</label>
+    <label class="checkbox-inline"><input type="checkbox" value="database" name='database'>Database</label>
+    <label class="checkbox-inline "><input type="checkbox" value="big data" name='big data'>Big data</label>
+    <label class="checkbox-inline"><input type="checkbox" value="data structure" name='data structure'>Data Structures</label>
+    <label class="checkbox-inline"><input type="checkbox" value="ios" name='ios"'>IOS</label>
+    <label class="checkbox-inline "><input type="checkbox" value="networking" name='networking'>Networking</label>
+    <label class="checkbox-inline"><input type="checkbox" value="frontend" name='frontend'>FRONTEND</label>
+    <label class="checkbox-inline"><input type="checkbox" value="backend" name='backend'>BACKEND</label>
+    <label class="checkbox-inline "><input type="checkbox" value="django" name='django'>DJANGO</label>
+    <label class="checkbox-inline"><input type="checkbox" value="laravel" name='laravel'>LARAVEL</label>
+    <label class="checkbox-inline"><input type="checkbox" value="js frameworks" name='js frameworks'>JS FRAMEWORKS</label>
+
+
+  </div>
+</div><br><br>
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+  <button type="submit" class="btn btn-default btn-primary">Submit</button>
+</div>
+</div>
+</form>
+
+
+</body>
+</html>

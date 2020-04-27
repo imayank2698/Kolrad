@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'student/css/register.css' %}">
+</head>
+<body>
+  {% if request.GET.auth1 %}
+  <p class="text-center" style="color:red; font-size:25px;">Username already exists</p>
+  {% endif %}
+  <h3 class="text-center">Register Here!!</h3>
+  <form class="text-center " action="{% url 'registeraction' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2 text-center">Name</label>
+      <input type="text" name="name" value="" class="col-sm-10 input-width" placeholder="Enter your name here" required>
+    </div>
+
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2 text-center">Email</label>
+      <input type="email" name="email" value="" class="col-sm-10 input-width" placeholder="Enter your email here" required>
+    </div>
+
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2 text-center">Phone</label>
+      <input type="number" name="phone" value="" class="col-sm-10 input-width" placeholder="Enter your name here" required>
+    </div>
+
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2 text-center">Username</label>
+      <input type="text" name="username" value="" class="col-sm-10 input-width" placeholder="Enter your username here" required>
+    </div>
+
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2 text-center">Pasword</label>
+      <input type="password" name="password" value="" class="col-sm-10 input-width"  placeholder="Enter your password here" required>
+    </div>
+
+    <div class="row margin-between-elements">
+      <label for="" class="col-sm-2">Profile Picture </label>
+      <input type="file" name="myfile" value="" class="col-sm-10">
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn-info btn-lg" name="button">Register</button>
+    </div>
+  </form>
+
+
+</body>
+</html>

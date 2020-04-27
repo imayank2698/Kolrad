@@ -1,0 +1,63 @@
+$baseColor: rgba(30, 40, 50, 1);
+
+body {
+  background: $baseColor;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  font-family: 'Anton', sans-serif;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 11.2rem;
+}
+
+.donuts {
+  &_mask {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    // Thank you @Zohir
+    background: $baseColor;
+    
+    &::before {
+      // content: '';
+      position: absolute;
+      height: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.99);
+      border-radius: 100%;
+      background: $baseColor;
+    }
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        z-index: 11 - $i;
+        clip-path: circle(($i * 10 / 2) + 0%);
+        animation: rotate 3000ms $i * 150ms ease-in-out infinite;
+        
+        &::before {
+          width: ($i - 1) * 10%;
+          padding-top: ($i - 1) * 10%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  
+  50% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}

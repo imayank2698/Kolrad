@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'company/css/profile.css' %}">
+</head>
+<body>
+  <div class="text-center dash-row">
+    <br><br>
+    <span class="text-center">Howdy {{username}} !!</span>
+    <br>
+
+    <div class="text-center profile">
+      <p>Name: {{company.name}}</p>
+      <p>Email: {{company.email}}</p>
+      <p>WEBSITE:<a href="{{company.websiteurl}}">{{company.websiteurl}}</a></p>
+      <p>Username: {{company.username}}</p><br><br><br><br>
+    </div>
+    <div class="notice"><hr>
+       <div class="col-sm-6 aj text-center">
+
+         <br>
+         <br>
+         <label for="Placements" class="control-label text-center">Placements:</label><br><br>
+         <textarea class="form-control" rows="5" id="place" name="placements" placeholder="No notices available" required>{{notice.placements}}</textarea>
+         <br>
+         <br>
+         <br>
+
+
+       </div>
+
+       <div class="col-sm-6 text-center aj">
+
+         <br>
+         <br>
+         <label for="Internships" class="control-label text-center">Internships:</label><br><br>
+         <textarea class="form-control" rows="5" id="intern" name="internships" placeholder="No notices available" required>{{notice.internships}}</textarea>
+         <br>
+         <br>
+         <br>
+
+       </div>
+
+     </div>
+
+
+     </div>
+   </div>
+
+ </div>
+
+</div>
+<footer class="text-center">
+<p>Copyrights@kolrad</p>
+<p>For any quesries contact us at 99999-99999</p>
+<p>Email us at kolrad@gmail.com</p>
+</footer>
+
+
+</body>
+</html>
